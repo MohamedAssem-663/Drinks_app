@@ -32,7 +32,7 @@ class _SplashViewBodyState extends State<Splash>
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Image.asset("assets/drinks/Salted Caramel.png"),
+        Image.asset("assets/drinks/Banana.png", height: 250, width: 150),
         const SizedBox(height: 5),
       ],
     );
@@ -51,7 +51,7 @@ class _SplashViewBodyState extends State<Splash>
   }
 
   void navigateToHome() {
-    Future.delayed(const Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 3), () {
       GoRouter.of(context).push(AppRouter.kHome);
     });
   }
