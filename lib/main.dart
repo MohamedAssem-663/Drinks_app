@@ -1,3 +1,4 @@
+import 'package:drinks_app/core/Utils/app_router.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,6 +10,12 @@ class DrinksApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp();
+    return MaterialApp.router(
+      theme: ThemeData(scaffoldBackgroundColor: Colors.white),
+      routerConfig: AppRouter.router,
+      title: 'Drinks App',
+
+      debugShowCheckedModeBanner: false,
+    );
   }
 }
