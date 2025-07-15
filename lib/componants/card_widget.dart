@@ -15,7 +15,7 @@ class CardWidget extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.symmetric(
-                  vertical: 30,
+                  vertical: 20,
                   horizontal: 15,
                 ),
                 child: Card(
