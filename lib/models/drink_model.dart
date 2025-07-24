@@ -29,12 +29,7 @@ class DrinkModel {
       descrebtion: 'A soothing cup of tea.',
       price: 23,
     ),
-    DrinkModel(
-      name: 'carmel',
-      image: 'assets/drinks/carmel.png',
-      descrebtion: 'A soothing cup of tea.',
-      price: 22,
-    ),
+
     DrinkModel(
       name: 'Peanut Butter',
       image: 'assets/drinks/Peanut Butter.png',

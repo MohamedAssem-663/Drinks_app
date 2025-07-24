@@ -1,6 +1,8 @@
 import 'package:drinks_app/componants/card_widget.dart';
+import 'package:drinks_app/core/Utils/app_router.dart';
 import 'package:drinks_app/models/drink_model.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -44,7 +46,12 @@ class _HomeState extends State<Home> {
                         child: child,
                       );
                     },
-                    child: CardWidget(drinkModel: drink),
+                    child: GestureDetector(
+                      child: CardWidget(drinkModel: drink),
+                      onTap: () {
+                        GoRouter.of(context).push(AppRouter.kDrinkDetails);
+                      },
+                    ),
                   );
                 },
                 itemCount: DrinkModel.drinks.length,

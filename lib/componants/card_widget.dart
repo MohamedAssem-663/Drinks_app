@@ -1,5 +1,7 @@
+import 'package:drinks_app/core/Utils/app_router.dart';
 import 'package:drinks_app/models/drink_model.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class CardWidget extends StatelessWidget {
   const CardWidget({super.key, required this.drinkModel});
@@ -93,7 +95,12 @@ class CardWidget extends StatelessWidget {
                     shape: BoxShape.circle,
                     border: Border.all(color: Colors.black45),
                   ),
-                  child: Icon(Icons.arrow_forward, color: Colors.black54),
+                  child: GestureDetector(
+                    child: Icon(Icons.arrow_forward, color: Colors.black54),
+                    onTap: () {
+                      GoRouter.of(context).push(AppRouter.kDrinkDetails);
+                    },
+                  ),
                 ),
               ),
             ],
