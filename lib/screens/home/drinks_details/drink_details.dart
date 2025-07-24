@@ -1,3 +1,5 @@
+import 'package:drinks_app/componants/quntity_widget.dart';
+import 'package:drinks_app/componants/toggle_widget.dart';
 import 'package:drinks_app/models/drink_model.dart';
 import 'package:flutter/material.dart';
 
@@ -9,6 +11,7 @@ class DrinkDetails extends StatefulWidget {
 
 class _DrinkDetailsState extends State<DrinkDetails> {
   final PageController _pageController = PageController(viewportFraction: 0.50);
+
   double _currentPage = 0;
   @override
   void initState() {
@@ -40,7 +43,7 @@ class _DrinkDetailsState extends State<DrinkDetails> {
         children: [
           //widget for itme name and description and price
           Positioned(
-            top: 80,
+            top: 50,
             left: 20,
             right: 20,
             child: Row(
@@ -57,8 +60,9 @@ class _DrinkDetailsState extends State<DrinkDetails> {
                     ),
                     Text(
                       drink[_currentPage.round()].descrebtion,
+                      maxLines: 2,
                       style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 14,
                         fontWeight: FontWeight.normal,
                       ),
                     ),
@@ -97,28 +101,15 @@ class _DrinkDetailsState extends State<DrinkDetails> {
                           children: [
                             Image.asset(
                               drink[index].image,
-                              height: 800,
+                              height: 700,
 
                               fit: BoxFit.contain,
                             ),
                             Positioned(
-                              bottom: 240,
+                              bottom: 182,
                               right: 0,
                               left: 0,
-                              child: Container(
-                                width: 70,
-                                height: 20,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(100),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.black87,
-                                      blurRadius: 80,
-                                      spreadRadius: 10,
-                                    ),
-                                  ],
-                                ),
-                              ),
+                              child: Image.asset("assets/drinks/shadow.png"),
                             ),
                           ],
                         ),
@@ -138,33 +129,46 @@ class _DrinkDetailsState extends State<DrinkDetails> {
 
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: List.generate(4, (index) {
-                  return GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        selectedIndex = index;
-                      });
-                    },
-                    child: Container(
-                      padding: EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        border: Border.all(color: Colors.black87),
-                        color: selectedIndex == index
-                            ? Colors.orange
-                            : Colors.white,
-                      ),
-                      child: Icon(
-                        iconList[index],
-                        color: selectedIndex == index
-                            ? Colors.white
-                            : Colors.black54,
-                      ),
-                    ),
-                  );
-                }),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: List.generate(4, (index) {
+                      return GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            selectedIndex = index;
+                          });
+                        },
+                        child: Container(
+                          padding: EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(color: Colors.black87),
+                            color: selectedIndex == index
+                                ? Colors.orange
+                                : Colors.white,
+                          ),
+                          child: Icon(
+                            iconList[index],
+                            color: selectedIndex == index
+                                ? Colors.white
+                                : Colors.black54,
+                          ),
+                        ),
+                      );
+                    }),
+                  ),
+                  SizedBox(height: 10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      ToggelWidget(),
+                      SizedBox(width: 20),
+                      Expanded(child: QuntityWidget()),
+                    ],
+                  ),
+                ],
               ),
             ),
           ),

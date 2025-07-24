@@ -70,7 +70,7 @@ class CardWidget extends StatelessWidget {
                     Text(
                       drinkModel.name.toUpperCase(),
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 18,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -79,7 +79,7 @@ class CardWidget extends StatelessWidget {
                       drinkModel.descrebtion,
                       style: TextStyle(
                         fontWeight: FontWeight.normal,
-                        fontSize: 17,
+                        fontSize: 14,
                       ),
                     ),
                   ],
